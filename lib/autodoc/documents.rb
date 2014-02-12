@@ -24,6 +24,7 @@ module Autodoc
         pathname.open("w") do |file|
           file << ERB.new(Autodoc.configuration.header_template, nil, "-").result(binding) + "\n" if Autodoc.configuration.header
           file << documents.map(&:render).join("\n").rstrip + "\n"
+          file << ERB.new(Autodoc.configuration.footer_template, nil, "-").result(binding) + "\n" if Autodoc.configuration.footer
         end
       end
     end

@@ -34,11 +34,19 @@ module Autodoc
       File.read(File.expand_path("../templates/header.md.erb", __FILE__))
     end
 
+    property :footer_template do
+      File.read(File.expand_path("../templates/footer.md.erb", __FILE__))
+    end
+
     property :toc_template do
       File.read(File.expand_path("../templates/toc.md.erb", __FILE__))
     end
 
     property :header do
+      false
+    end
+
+    property :footer do
       false
     end
 
